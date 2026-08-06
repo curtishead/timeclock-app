@@ -1,0 +1,548 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.login-choice {
+  background: white;
+  padding: 60px 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+}
+
+.login-choice h1 {
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.button-group {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.btn {
+  padding: 15px 30px;
+  font-size: 1em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-large {
+  padding: 20px 40px;
+  font-size: 1.2em;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.btn-large:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-secondary {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.btn-secondary:hover {
+  background: #e0e0e0;
+}
+
+.btn-danger {
+  background: #ff6b6b;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #ff5252;
+}
+
+.btn-success {
+  background: #51cf66;
+  color: white;
+}
+
+.btn-success:hover {
+  background: #40c057;
+}
+
+.form-container {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1em;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.form-header h2 {
+  color: #333;
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.form-actions button {
+  flex: 1;
+}
+
+.employee-clock-view {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  width: 100%;
+}
+
+.clock-header {
+  text-align: center;
+  margin-bottom: 40px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 20px;
+}
+
+.clock-header h1 {
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.clock-header p {
+  color: #999;
+  font-size: 0.9em;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+
+.status-clocked-in {
+  background: #d3f9d8;
+  color: #2b8a3e;
+}
+
+.status-on-lunch {
+  background: #fff3bf;
+  color: #f59f00;
+}
+
+.status-clocked-out {
+  background: #f8f9fa;
+  color: #495057;
+}
+
+.clock-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.clock-button {
+  padding: 40px 20px;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+.clock-button.large {
+  grid-column: 1 / -1;
+  padding: 50px 20px;
+  font-size: 1.3em;
+}
+
+.clock-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.clock-in-btn {
+  background: linear-gradient(135deg, #51cf66 0%, #40c057 100%);
+}
+
+.clock-out-btn {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%);
+}
+
+.lunch-start-btn {
+  background: linear-gradient(135deg, #ffd43b 0%, #f59f00 100%);
+  color: #333;
+}
+
+.lunch-end-btn {
+  background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+}
+
+.clock-button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.status-info {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border-left: 4px solid #667eea;
+}
+
+.status-info h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.status-info p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.camera-button {
+  background: #4c6ef5;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: all 0.3s;
+}
+
+.camera-button:hover {
+  background: #3b52cc;
+}
+
+.camera-preview {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.camera-preview img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 8px;
+  border: 2px solid #e0e0e0;
+}
+
+.camera-preview p {
+  color: #999;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+.admin-dashboard {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  max-width: 1200px;
+  width: 100%;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 20px;
+}
+
+.admin-header h1 {
+  color: #333;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.tab-button {
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  color: #999;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s;
+}
+
+.tab-button.active {
+  color: #667eea;
+  border-bottom-color: #667eea;
+}
+
+.tab-button:hover {
+  color: #667eea;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.employee-list {
+  display: grid;
+  gap: 20px;
+}
+
+.employee-card {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  align-items: center;
+  gap: 15px;
+}
+
+.employee-info h3 {
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.employee-info p {
+  color: #999;
+  font-size: 0.9em;
+}
+
+.employee-wage-input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.employee-wage-input input {
+  padding: 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 0.9em;
+}
+
+.overtime-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.overtime-checkbox input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.overtime-checkbox label {
+  cursor: pointer;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.payroll-week-selector {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.payroll-week-selector input {
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 1em;
+}
+
+.payroll-summary {
+  display: grid;
+  gap: 15px;
+}
+
+.payroll-card {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 4px solid #667eea;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.payroll-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.payroll-item label {
+  font-size: 0.85em;
+  color: #999;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.payroll-item value {
+  font-size: 1.3em;
+  color: #333;
+  font-weight: bold;
+}
+
+.total-pay {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white !important;
+}
+
+.total-pay value {
+  color: white;
+  font-size: 1.5em;
+}
+
+.error-message {
+  background: #ffe0e0;
+  color: #c92a2a;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-left: 4px solid #c92a2a;
+}
+
+.success-message {
+  background: #d3f9d8;
+  color: #2b8a3e;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-left: 4px solid #2b8a3e;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #999;
+}
+
+@media (max-width: 768px) {
+  .employee-card {
+    grid-template-columns: 1fr;
+  }
+
+  .clock-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .clock-button.large {
+    grid-column: 1;
+  }
+
+  .form-container,
+  .employee-clock-view,
+  .admin-dashboard {
+    padding: 20px;
+  }
+
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .employee-wage-input {
+    flex-direction: row;
+  }
+
+  .tabs {
+    flex-wrap: wrap;
+  }
+}
